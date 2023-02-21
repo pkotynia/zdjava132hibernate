@@ -2,12 +2,18 @@ package org.example;
 
 import jakarta.persistence.*;
 
+//Base on this annotation Hibernate will use Department object as DB entity
+//this will allow for operations such as persist to be performed
 @Entity
+//this annotation allows Hibernate to create/map our class to DB table
 @Table(name = "department")
 public class Department {
 
+    // this field will be a Primary Key
     @Id
-    @GeneratedValue(strategy = GenerationType.SEQUENCE)
+    // Hibernate will handle key generation for us
+    @GeneratedValue
+    // explicitly setting column name, if not used column name = field name
     @Column(name = "department_id")
     private int departmentId;
 
